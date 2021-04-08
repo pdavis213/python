@@ -1,0 +1,10 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+.box{
+    display: flex;
+    height: 70px;
+    width: 70px;
+}
