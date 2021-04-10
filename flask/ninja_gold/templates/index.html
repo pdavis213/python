@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <div class="container mt-5 font-monospace">
+        <div class="row">
+            <h1 class="col-3">Your Gold: </h1>
+            <h1 class="col-3 border border-3 rounded">{{session['gold']}}</h1>
+        </div>
+        <div class="row mt-5">
+            <div class="card col-3 d-flex justify-items-center align-items-center pt-5" id="farmbox" style="height: 250px;">
+                <h3>Farm</h3>
+                <p>(Earns 10-20 Gold)</p>
+                <form action="/process_money" id="farmform" method="post">
+                    <input type="hidden" name="option" value="farm">
+                    <input class="rounded btn btn-primary" id="farmbutton" type="submit" value="Find gold!">
+                </form>
+            </div>
+            <div class="card col-3 d-flex justify-items-center align-items-center pt-5" id="cavebox" style="height: 250px;">
+                <h3>Cave</h3>
+                <p>(Earns 5-10 Gold)</p>
+                <form action="/process_money" id="farmform" method="post">
+                    <input type="hidden" name="option" value="cave">
+                    <input class="rounded btn btn-primary" id="cavebutton" type="submit" value="Find gold!">
+                </form>
+            </div>
+            <div class="card col-3 d-flex justify-items-center align-items-center pt-5" id="housebox" style="height: 250px;">
+                <h3>House</h3>
+                <p>(Earns 2-5 Gold)</p>
+                <form action="/process_money" id="houseform" method="post">
+                    <input type="hidden" name="option" value="house">
+                    <input class="rounded btn btn-primary" id="housebutton" type="submit" value="Find gold!">
+                </form>
+            </div>
+            <div class="card col-3 d-flex justify-items-center align-items-center pt-5" id="farmbox" style="height: 250px;">
+                <h3>Casino</h3>
+                <p class="text-center">(Earns <span class=italic>or takes</span> 0-50 Gold)</p>
+                <form action="/process_money" id="casinoform" method="post">
+                    <input type="hidden" name="option" value="casino">
+                    <input class="rounded btn btn-primary" id="casinobutton" type="submit" value="Find gold!">
+                </form>
+            </div>
+        </div>
+        <h2 class="mt-5">Activities:</h2>
+        <div class="border border-3 rounded overflow-auto" style="height: 200px;">
+            {% for activity in session['activities'][::-1] %}
+                <p class="mb-1"><span style="color: {{activity[1]}}">{{activity[0]}}</span></p>
+            {% endfor %}
+        </div>
+        <a role="button" href="http://127.0.0.1:5000/reset" class="btn btn-danger rounedd mt-2">Reset</a>
+    </div>
+</body>
+</html>
