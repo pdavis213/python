@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo survey</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+<h3>Create a User</h3>
+<fieldset>
+    <form action='/users' method='post'>
+        <label for="your_name">Last name, First name:</label>
+            <input type='text' name='your_name'>
+            <p><label for="your_location">Dojo Location:</label>
+            <input type='text' name='your_location'></p>
+        <p><label for="favorite_language">Favorite Language:</label>
+            <select name="favorite_language">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Python">Python</option>
+                <option value="Jinja">Jinja</option>
+            </select></p>
+        <p>Comments (Optional): </p>
+        <textarea name="comment" cols="30" rows="10"></textarea>
+        <div><input type="submit" value="Create User"></div>
+    </form>
+</fieldset>
+
+</body>
+</html>
