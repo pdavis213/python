@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All My Friends</h1>
+    {% for users in all_friends %}
+        <p>First Name: {{users["first_name"]}}</p>
+        <p>Last Name: {{users["last_name"]}}</p>
+        <p>Email: {{users["email"]}}</p>
+        <hr>
+    {% endfor %}
+</body>
+</html>
