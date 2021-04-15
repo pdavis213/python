@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width = <device-width>, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <h1>All My Friends</h1>
-    {% for users in all_friends %}
-        <p>First Name: {{users["first_name"]}}</p>
-        <p>Last Name: {{users["last_name"]}}</p>
-        <p>Email: {{users["email"]}}</p>
-        <hr>
+
+<a href="/create_friend" style="button" >Add Friend</a>
+    
+<h1>All Users</h1>
+{% for users in all_friends %}
+<div class="container">
+    <div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Email</th>
+                <th>Created At</th>
+            </tr>
+                <tr>
+                    <td>{{users["id"]}}</td>
+                    <td>{{users["first_name"]}}</td>
+                    <td>{{users["last_name"]}}</td>
+                    <td>{{users["email"]}}</td>
+                    <td>{{users["created_at"]}}</td>
+                </tr>
+                <hr>
+        </table>
+        <a href="/display_friend/{{users['id']}}">Show</a> | <a href="/edit_friend/{{users['id']}}" style="button">Edit</a> | <a href="/delete_friend/{{users['id']}}" style="button">Delete</a></p>
+    </div>
     {% endfor %}
+</div>
+
 </body>
+
 </html>

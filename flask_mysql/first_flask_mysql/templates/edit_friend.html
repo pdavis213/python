@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/" style="button">Home</a>
+    <form action="/update_friend/{{friend['id']}}" method="POST">
+        <h1>Edit Friend</h1>
+        <p>First Name: <input type="text" name= "first_name" value= "{{friend['first_name']}}"></p>
+        <p>Last Name: <input type="text" name= "last_name" value = "{{friend['last_name']}}"></p>
+        <p>Email: <input type="text" name= "email" value = "{{friend['email']}}"></p>
+        <input type="submit" value="Update Friend">
+    </form>
+    <a href="/delete_friend/{{friend['id']}}" style="button">Delete</a>
+
+</body>
+</html>
