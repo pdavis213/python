@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ninjas</h1>
+    {% for i in dojos %}
+    <div class = "container">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+                
+            <tr>
+                <td>{{i['first_name']}}</td>
+                <td>{{i['last_name']}}</td>
+                <td>{{i['age']}}</td>
+            </tr>
+        </table>
+    </div>
+    {% endfor %}
+    <a href="/">Home</a>
+</body>
+</html>
