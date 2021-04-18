@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="display: flex;text-align: left; justify-content: space-around;">
+        <div>
+            <h1>Title: {{title[0]['name']}}</h1>
+        </div>
+        <div>
+            <h1>Add Book's Favorite</h1>
+        </div>
+    </div>
+    <div class="container" style="display: flex;text-align: left; justify-content: space-around;">
+        <div> 
+            <table>
+                <tr>
+                    <th>Favorited by:</th>
+                </tr>
+                {% for authors in favorites %}
+                <tr>
+                    <td>{{authors['name']}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div>
+            <h4>Author:</h4>
+            <form action="/add_author/" method="POST">
+            <select name="favorites" id="favoties">
+                {% for authors in name %}
+                    <option value= "{{authors['id']}}">{{authors['name']}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="add" id="" style="background-color: white; box-shadow: solid black 2px 2px; margin-top: 10px;">
+            <input type="hidden" name="book_id" value="{{title[0]['id']}}">
+            </form>
+        </div>
+    </div>
+    <a href="/">Home</a>
+
+</body>
+</html>
