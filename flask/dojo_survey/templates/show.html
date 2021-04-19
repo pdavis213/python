@@ -9,23 +9,21 @@
 <body>
     <h1>Show Page</h1>
 <h3>Info Submitted:</h3>
+    {% for info in dojos %}
     <table>
         <tr>
             <th>Name:</th>
-            <td>{{ name }}</td>
+            <td>{{info['name']}}</td>
         </tr>
         <tr>
             <th>Location:</th>
-            <td>{{location}}</td>
+            <td>{{info['location']}}</td>
         </tr>
         <tr>
             <th>Favorite Language:</th>
-            <td>{{ language }}</td>
+            <td>{{info['language']}}</td>
         </tr>
-        <tr>
-            <th>Comments</th>
-            <td>{{ comment }}</td>
-        </tr>
+    {% endfor %}
     </table>
 </body>
 </html>
