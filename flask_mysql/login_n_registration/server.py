@@ -8,10 +8,14 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app) 
 app.secret_key = 'doggos bloggos'
 
+
+#!          initial landing page                 #!
 @app.route('/')
 def index():
     return render_template("landing_page.html")
 
+
+#!          sumbision and checks for users registration         #!
 @app.route('/register', methods=['POST'])
 def create_user():
     if len(request.form['first']) < 1:
@@ -48,6 +52,8 @@ def create_user():
         return redirect('/')
 
 
+
+#!          submission and checks for login attempt                  #!
 @app.route('/login', methods=['POST'])
 def login_user():
     query = "SELECT * FROM users WHERE email = %(email)s;"
@@ -66,6 +72,8 @@ def login_user():
     return redirect("/")
 
 
+
+#!          successful login page                 #!
 @app.route('/success')
 def success():
     if 'id' not in session:
@@ -80,6 +88,8 @@ def success():
     session['name'] = f"{result[0]['first_name']} {result[0]['last_name']}"
     return render_template("successful_login.html")
 
+
+#!          logout action                 #!
 @app.route('/logout')
 def logout():
     session.clear()
@@ -87,3 +97,22 @@ def logout():
 
 if __name__=='__main__':
     app.run(debug=True)
+
+
+
+# Checks as a function if needed for future assignments
+# def validate_recipe(recipe):
+#     is_valid = True
+#     if len(recipe['name']) <3:
+#         is_valid = False
+#         flash("Recipe name must be at least 3 characters", "recipe")
+#     if len(recipe['description']) <3:
+#         is_valid = False
+#         flash("Recipe description must be at least 3 characters", "recipe")
+#     if len(recipe['instructions']) <3:
+#         is_valid = False
+#         flash("Recipe instructions must be at least 3 characters", "recipe")
+#     if recipe['under_thrity'] == None:
+#         is_valid = False
+#         flash("Please select if recipe is under 30 minutes", "recipe")
+#     return is_valid
