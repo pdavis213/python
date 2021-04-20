@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=True) %} 
+        {% if messages %}                           
+            {% for category, message in messages %}          
+                <strong>{{ category }}</strong>
+                <p>{{message}}</p>                
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div>
+    <h1 style="text-align: center;">Login and Registration</h1>
+    <div class="container" style="display: flex; margin: 0 auto;justify-content: center;">
+        <div>
+            <h2>Register Here!</h2>
+            <form action="/register" name="registration" id="registration" method="POST">
+                    <!--               First name                 -->
+                <label for="first_name">First name:</label>
+                <input type="text" name="first" style="margin: 10px; font-size: 1.1rem"><br>
+                    <!--                Last name                  -->
+                <label for="last_name">Last name:</label>
+                <input type="text" name="last" style="margin: 10px;font-size: 1.1rem"><br>
+                    <!--                  Email                -->
+                <label for="email">Email:</label>
+                <input type="text" name="email" style="margin: 10px;font-size: 1.1rem"><br>
+                    <!--               Password                -->
+                <label for="password">Password:</label>
+                <input type="password"name="pass" style="margin: 10px;font-size: 1.1rem"><br>
+                    <!--              Confirm Pass           -->
+                <label for="confirm_pass">Confirm password:</label>
+                <input type="password" name="confirm_pass" style="margin: 10px;font-size: 1.1rem"><br>
+
+                <input style="cursor:pointer;background-color: rgb(65, 121, 9);color: whitesmoke; border: solid 3px black; height: 40px;border-radius: 10px; font-size: 1.1rem;" type="submit" value="Register!">
+            </form>
+        </div>
+        <div>
+            <h2>Login here!</h2>
+            <form action="/login" name="login" id="login" method="POST">
+                <label for="email">Email:</label>
+                <input type="text" name= "email" style="margin: 10px;font-size: 1.1rem"><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" style="margin: 10px;font-size: 1.1rem"><br>
+                <input style="cursor:pointer; background-color: rgb(65, 121, 9);color: whitesmoke; border: solid 3px black; height: 40px; border-radius: 10px;font-size: 1.1rem;" type="submit" value="Login!">
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
